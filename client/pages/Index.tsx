@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
-import { Search, MapPin, Star, Users, Globe, ChevronRight, Play } from "lucide-react";
+import { Search, MapPin, Star, Users, Globe, ChevronRight, Play, Heart, MessageCircle, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
+import MobileNav from "@/components/MobileNav";
+import SearchForm from "@/components/SearchForm";
 
 export default function Index() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCountry, setSelectedCountry] = useState("");
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [likedGuides, setLikedGuides] = useState<Set<number>>(new Set());
+  const [showTooltip, setShowTooltip] = useState<number | null>(null);
 
   // Mock data for featured guides
   const featuredGuides = [
@@ -82,25 +85,46 @@ export default function Index() {
       <header className="glass-card sticky top-0 z-50 border-none">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+            <a href="/" className="flex items-center space-x-2 group">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Globe className="h-6 w-6 text-white" />
               </div>
               <span className="text-2xl font-bold gradient-text">GuideMe</span>
-            </div>
-            
+            </a>
+
             <nav className="hidden md:flex items-center space-x-8">
-              <a href="/guides" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Гиды</a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Направления</a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Как это работает</a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Поддержка</a>
+              <a href="/guides" className="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium relative group">
+                Гиды
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              </a>
+              <a href="#destinations" className="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium relative group">
+                Направления
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              </a>
+              <a href="#how-it-works" className="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium relative group">
+                Как это работает
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              </a>
+              <a href="#support" className="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium relative group">
+                Поддержка
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              </a>
             </nav>
 
             <div className="flex items-center space-x-4">
-              <Button variant="ghost" className="hidden sm:flex">Стать гидом</Button>
-              <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 border-0">
+              <Button
+                variant="ghost"
+                className="hidden sm:flex hover:bg-blue-50 transition-colors duration-300"
+              >
+                Стать гидом
+              </Button>
+              <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 border-0 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 Войти
               </Button>
+              <MobileNav
+                isOpen={mobileNavOpen}
+                onToggle={() => setMobileNavOpen(!mobileNavOpen)}
+              />
             </div>
           </div>
         </div>
@@ -120,39 +144,7 @@ export default function Index() {
             </p>
 
             {/* Search Section */}
-            <div className="glass-card p-8 rounded-3xl max-w-3xl mx-auto mb-16 animate-scale-in">
-              <div className="flex flex-col md:flex-row gap-4">
-                <div className="flex-1 relative">
-                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                  <Input
-                    type="text"
-                    placeholder="Куда хотите поехать?"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-12 h-14 text-lg bg-white/50 border-white/20 rounded-2xl focus:bg-white"
-                  />
-                </div>
-                <div className="flex-1 relative">
-                  <MapPin className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                  <select 
-                    value={selectedCountry}
-                    onChange={(e) => setSelectedCountry(e.target.value)}
-                    className="w-full pl-12 h-14 text-lg bg-white/50 border border-white/20 rounded-2xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
-                  >
-                    <option value="">Выберите страну</option>
-                    <option value="russia">Россия</option>
-                    <option value="france">Франция</option>
-                    <option value="italy">Италия</option>
-                    <option value="japan">Япония</option>
-                    <option value="spain">Испания</option>
-                  </select>
-                </div>
-                <Button size="lg" className="h-14 px-8 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-2xl border-0 text-lg font-semibold">
-                  Найти гида
-                  <ChevronRight className="ml-2 h-5 w-5" />
-                </Button>
-              </div>
-            </div>
+            <SearchForm />
 
             {/* Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
@@ -166,7 +158,7 @@ export default function Index() {
               </div>
               <div className="text-center animate-slide-in-right">
                 <div className="text-3xl font-bold gradient-text">500,000+</div>
-                <div className="text-gray-600">Довольных путешест��енников</div>
+                <div className="text-gray-600">Довольных путешественников</div>
               </div>
             </div>
           </div>
@@ -342,7 +334,7 @@ export default function Index() {
               <h3 className="font-semibold mb-4">Путешественникам</h3>
               <ul className="space-y-2 text-gray-400">
                 <li><a href="#" className="hover:text-white transition-colors">Найти гида</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Попу��ярные направления</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Популярные направления</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Отзывы</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Поддержка</a></li>
               </ul>
@@ -363,7 +355,7 @@ export default function Index() {
               <ul className="space-y-2 text-gray-400">
                 <li><a href="#" className="hover:text-white transition-colors">О нас</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Карьера</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Пресс-центр</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Пресс-��ентр</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Контакты</a></li>
               </ul>
             </div>
