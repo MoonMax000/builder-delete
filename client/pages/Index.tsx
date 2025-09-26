@@ -315,7 +315,12 @@ export default function Index() {
           </div>
 
           <div className="text-center mt-12">
-            <Button variant="outline" size="lg" className="glass-button border-white/20">
+            <Button
+              variant="outline"
+              size="lg"
+              className="glass-button border-white/20 hover:scale-105 transition-all duration-300 hover:shadow-lg"
+              onClick={() => window.location.href = '/guides'}
+            >
               Посмотреть всех гидов
               <ChevronRight className="ml-2 h-5 w-5" />
             </Button>
@@ -324,47 +329,79 @@ export default function Index() {
       </section>
 
       {/* Popular Destinations */}
-      <section className="py-20 bg-gradient-to-r from-blue-50 to-indigo-50">
+      <section id="destinations" className="py-20 bg-gradient-to-r from-blue-50 to-indigo-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Популярные направления</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Исследуйт�� самые востребованные города с нашими экспертными гидами
+              Исследуйте самые востребованные города с нашими экспертными гидами
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {popularDestinations.map((destination, index) => (
-              <div 
+              <div
                 key={destination.name}
                 className="group cursor-pointer"
                 style={{animationDelay: `${index * 200}ms`}}
+                onClick={() => {
+                  const params = new URLSearchParams({
+                    destination: destination.name,
+                    country: destination.country.toLowerCase()
+                  });
+                  window.location.href = `/guides?${params.toString()}`;
+                }}
               >
                 <div className="relative overflow-hidden rounded-3xl aspect-[4/5] glass-card border-white/20 group-hover:shadow-float transition-all duration-500 group-hover:-translate-y-2">
-                  <img 
+                  <img
                     src={destination.image}
                     alt={destination.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className={`absolute inset-0 bg-gradient-to-t ${destination.color} opacity-60 group-hover:opacity-70 transition-opacity duration-300`}></div>
-                  
+
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <Button className="bg-white text-gray-900 hover:bg-gray-100 transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                      Найти гидов
+                      <ChevronRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </div>
+
                   <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
-                    <h3 className="text-2xl font-bold mb-2">{destination.name}</h3>
+                    <h3 className="text-2xl font-bold mb-2 group-hover:scale-105 transition-transform duration-300">{destination.name}</h3>
                     <p className="text-white/90 mb-3">{destination.country}</p>
-                    <div className="flex items-center">
-                      <Users className="h-4 w-4 mr-2" />
-                      <span className="text-sm">{destination.guides} гидов</span>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center">
+                        <Users className="h-4 w-4 mr-2" />
+                        <span className="text-sm">{destination.guides} гидов</span>
+                      </div>
+                      <div className="glass-button px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <ChevronRight className="h-4 w-4" />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* View all destinations button */}
+          <div className="text-center mt-12">
+            <Button
+              variant="outline"
+              size="lg"
+              className="glass-button border-white/20 hover:scale-105 transition-all duration-300 hover:shadow-lg"
+            >
+              Все направления
+              <Globe className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
+      <section id="how-it-works" className="py-20">
         <div className="container mx-auto px-6">
           <div className="glass-card rounded-3xl p-12 text-center max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -373,11 +410,55 @@ export default function Index() {
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               Начните свое путешествие прямо сейчас. Найдите идеального гида и откройте мир новых впечатлений.
             </p>
+
+            {/* Steps */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Search className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="font-bold mb-2">1. Найдите</h3>
+                <p className="text-gray-600 text-sm">Выберите направление и найдите идеального гида</p>
+              </div>
+
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <MessageCircle className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="font-bold mb-2">2. Свяжитесь</h3>
+                <p className="text-gray-600 text-sm">Обсудите детали и забронируйте экскурсию</p>
+              </div>
+
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Heart className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="font-bold mb-2">3. Наслаждайтесь</h3>
+                <p className="text-gray-600 text-sm">Получите незабываемые впечатления</p>
+              </div>
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 border-0 px-8">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 border-0 px-8 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                onClick={() => window.location.href = '/guides'}
+              >
                 Найти гида
+                <ChevronRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="outline" size="lg" className="glass-button border-white/20">
+              <Button
+                variant="outline"
+                size="lg"
+                className="glass-button border-white/20 hover:scale-105 transition-all duration-300"
+                onClick={() => {
+                  // Scroll to how-it-works section or show video
+                  const element = document.getElementById('how-it-works');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
                 <Play className="mr-2 h-5 w-5" />
                 Как это работает
               </Button>
