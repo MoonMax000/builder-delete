@@ -90,7 +90,7 @@ export default function Index() {
             </div>
             
             <nav className="hidden md:flex items-center space-x-8">
-              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Гиды</a>
+              <a href="/guides" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Гиды</a>
               <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Направления</a>
               <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Как это работает</a>
               <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Поддержка</a>
@@ -166,7 +166,7 @@ export default function Index() {
               </div>
               <div className="text-center animate-slide-in-right">
                 <div className="text-3xl font-bold gradient-text">500,000+</div>
-                <div className="text-gray-600">Довольных путешественников</div>
+                <div className="text-gray-600">Довольных путешест��енников</div>
               </div>
             </div>
           </div>
@@ -265,7 +265,7 @@ export default function Index() {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Популярные направления</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Исследуйте с��мые востребованные города с нашими экспертными гидами
+              Исследуйте самые востребованные города с нашими экспертными гидами
             </p>
           </div>
 
@@ -342,7 +342,7 @@ export default function Index() {
               <h3 className="font-semibold mb-4">Путешественникам</h3>
               <ul className="space-y-2 text-gray-400">
                 <li><a href="#" className="hover:text-white transition-colors">Найти гида</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Популярные направления</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Попу��ярные направления</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Отзывы</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Поддержка</a></li>
               </ul>
