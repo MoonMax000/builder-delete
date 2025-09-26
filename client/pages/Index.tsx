@@ -1,62 +1,379 @@
-import { DemoResponse } from "@shared/api";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { Search, MapPin, Star, Users, Globe, ChevronRight, Play } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function Index() {
-  const [exampleFromServer, setExampleFromServer] = useState("");
-  // Fetch users on component mount
-  useEffect(() => {
-    fetchDemo();
-  }, []);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState("");
 
-  // Example of how to fetch data from the server (if needed)
-  const fetchDemo = async () => {
-    try {
-      const response = await fetch("/api/demo");
-      const data = (await response.json()) as DemoResponse;
-      setExampleFromServer(data.message);
-    } catch (error) {
-      console.error("Error fetching hello:", error);
+  // Mock data for featured guides
+  const featuredGuides = [
+    {
+      id: 1,
+      name: "Анна Петрова",
+      location: "Санкт-Петербург, Россия",
+      rating: 4.9,
+      reviews: 247,
+      price: "от ₽2,500",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face",
+      specialties: ["Исторические туры", "Архитектура", "Музеи"],
+      languages: ["Русский", "English", "Français"]
+    },
+    {
+      id: 2,
+      name: "Marco Rossi",
+      location: "Рим, Италия",
+      rating: 4.8,
+      reviews: 189,
+      price: "от €35",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
+      specialties: ["Античная история", "Кулинарные туры", "Искусство"],
+      languages: ["Italiano", "English", "Español"]
+    },
+    {
+      id: 3,
+      name: "Sophie Chen",
+      location: "Токио, Япония",
+      rating: 5.0,
+      reviews: 156,
+      price: "от ¥4,000",
+      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face",
+      specialties: ["Культура", "Аниме", "Традиции"],
+      languages: ["日本語", "English", "한국어"]
     }
-  };
+  ];
+
+  const popularDestinations = [
+    {
+      name: "Париж",
+      country: "Франция",
+      guides: 89,
+      image: "https://images.unsplash.com/photo-1502602898536-47ad22581b52?w=400&h=300&fit=crop",
+      color: "from-purple-500 to-pink-500"
+    },
+    {
+      name: "Токио",
+      country: "Япония", 
+      guides: 67,
+      image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&h=300&fit=crop",
+      color: "from-blue-500 to-cyan-500"
+    },
+    {
+      name: "Рим",
+      country: "Италия",
+      guides: 72,
+      image: "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=400&h=300&fit=crop",
+      color: "from-orange-500 to-red-500"
+    },
+    {
+      name: "Барселона",
+      country: "Испания",
+      guides: 54,
+      image: "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=400&h=300&fit=crop",
+      color: "from-green-500 to-teal-500"
+    }
+  ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-      <div className="text-center">
-        {/* TODO: FUSION_GENERATION_APP_PLACEHOLDER replace everything here with the actual app! */}
-        <h1 className="text-2xl font-semibold text-slate-800 flex items-center justify-center gap-3">
-          <svg
-            className="animate-spin h-8 w-8 text-slate-400"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              className="opacity-30"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-            />
-            <circle
-              className="text-slate-600"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-              strokeDasharray="100"
-              strokeDashoffset="75"
-            />
-          </svg>
-          Generating your app...
-        </h1>
-        <p className="mt-4 text-slate-600 max-w-md">
-          Watch the chat on the left for updates that might need your attention
-          to finish generating
-        </p>
-        <p className="mt-4 hidden max-w-md">{exampleFromServer}</p>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+      {/* Header */}
+      <header className="glass-card sticky top-0 z-50 border-none">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                <Globe className="h-6 w-6 text-white" />
+              </div>
+              <span className="text-2xl font-bold gradient-text">GuideMe</span>
+            </div>
+            
+            <nav className="hidden md:flex items-center space-x-8">
+              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Гиды</a>
+              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Направления</a>
+              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Как это работает</a>
+              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Поддержка</a>
+            </nav>
+
+            <div className="flex items-center space-x-4">
+              <Button variant="ghost" className="hidden sm:flex">Стать гидом</Button>
+              <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 border-0">
+                Войти
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="relative pt-20 pb-32 overflow-hidden">
+        <div className="container mx-auto px-6">
+          <div className="text-center max-w-4xl mx-auto animate-fade-in-up">
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 text-balance">
+              Откройте мир с
+              <span className="gradient-text block">местными гидами</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-600 mb-12 text-balance leading-relaxed">
+              Уникальные экскурсии от местных экспертов в более чем 180 странах мира. 
+              Погрузитесь в культуру и откройте скрытые жемчужины.
+            </p>
+
+            {/* Search Section */}
+            <div className="glass-card p-8 rounded-3xl max-w-3xl mx-auto mb-16 animate-scale-in">
+              <div className="flex flex-col md:flex-row gap-4">
+                <div className="flex-1 relative">
+                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                  <Input
+                    type="text"
+                    placeholder="Куда хотите поехать?"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-12 h-14 text-lg bg-white/50 border-white/20 rounded-2xl focus:bg-white"
+                  />
+                </div>
+                <div className="flex-1 relative">
+                  <MapPin className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                  <select 
+                    value={selectedCountry}
+                    onChange={(e) => setSelectedCountry(e.target.value)}
+                    className="w-full pl-12 h-14 text-lg bg-white/50 border border-white/20 rounded-2xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
+                  >
+                    <option value="">Выберите страну</option>
+                    <option value="russia">Россия</option>
+                    <option value="france">Франция</option>
+                    <option value="italy">Италия</option>
+                    <option value="japan">Япония</option>
+                    <option value="spain">Испания</option>
+                  </select>
+                </div>
+                <Button size="lg" className="h-14 px-8 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-2xl border-0 text-lg font-semibold">
+                  Найти гида
+                  <ChevronRight className="ml-2 h-5 w-5" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
+              <div className="text-center animate-slide-in-left">
+                <div className="text-3xl font-bold gradient-text">10,000+</div>
+                <div className="text-gray-600">Экспертных гидов</div>
+              </div>
+              <div className="text-center animate-fade-in-up">
+                <div className="text-3xl font-bold gradient-text">180+</div>
+                <div className="text-gray-600">Стран мира</div>
+              </div>
+              <div className="text-center animate-slide-in-right">
+                <div className="text-3xl font-bold gradient-text">500,000+</div>
+                <div className="text-gray-600">Довольных путешественников</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Floating elements */}
+        <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full opacity-20 animate-float"></div>
+        <div className="absolute top-40 right-16 w-16 h-16 bg-gradient-to-br from-pink-400 to-red-500 rounded-full opacity-20 animate-float" style={{animationDelay: "2s"}}></div>
+        <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-gradient-to-br from-green-400 to-teal-500 rounded-full opacity-20 animate-float" style={{animationDelay: "4s"}}></div>
+      </section>
+
+      {/* Featured Guides */}
+      <section className="py-20 relative">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Лучшие гиды</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Познакомьтесь с нашими топ-гидами, которые сделают ваше путешествие незабываемым
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredGuides.map((guide, index) => (
+              <Card key={guide.id} className="glass-card border-white/20 overflow-hidden group hover:shadow-float transition-all duration-500 hover:-translate-y-2">
+                <CardContent className="p-0">
+                  <div className="relative overflow-hidden">
+                    <img 
+                      src={guide.image} 
+                      alt={guide.name}
+                      className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute top-4 right-4 glass-button px-3 py-1 rounded-full">
+                      <div className="flex items-center space-x-1">
+                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                        <span className="text-sm font-semibold">{guide.rating}</span>
+                      </div>
+                    </div>
+                    <div className="absolute bottom-4 left-4 glass-button px-3 py-1 rounded-full">
+                      <span className="text-sm font-semibold text-blue-600">{guide.price}</span>
+                    </div>
+                  </div>
+                  
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold mb-2">{guide.name}</h3>
+                    <div className="flex items-center text-gray-600 mb-3">
+                      <MapPin className="h-4 w-4 mr-1" />
+                      <span className="text-sm">{guide.location}</span>
+                    </div>
+                    
+                    <div className="flex items-center space-x-4 mb-4">
+                      <div className="flex items-center">
+                        <Users className="h-4 w-4 mr-1 text-gray-400" />
+                        <span className="text-sm text-gray-600">{guide.reviews} отзывов</span>
+                      </div>
+                    </div>
+
+                    <div className="mb-4">
+                      <div className="flex flex-wrap gap-2">
+                        {guide.specialties.slice(0, 2).map((specialty, idx) => (
+                          <span key={idx} className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
+                            {specialty}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="flex flex-wrap gap-1 mb-4">
+                      {guide.languages.map((lang, idx) => (
+                        <span key={idx} className="text-xs text-gray-500">
+                          {lang}{idx < guide.languages.length - 1 && ", "}
+                        </span>
+                      ))}
+                    </div>
+
+                    <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 border-0">
+                      Связаться с гидом
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button variant="outline" size="lg" className="glass-button border-white/20">
+              Посмотреть всех гидов
+              <ChevronRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Popular Destinations */}
+      <section className="py-20 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Популярные направления</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Исследуйте с��мые востребованные города с нашими экспертными гидами
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {popularDestinations.map((destination, index) => (
+              <div 
+                key={destination.name}
+                className="group cursor-pointer"
+                style={{animationDelay: `${index * 200}ms`}}
+              >
+                <div className="relative overflow-hidden rounded-3xl aspect-[4/5] glass-card border-white/20 group-hover:shadow-float transition-all duration-500 group-hover:-translate-y-2">
+                  <img 
+                    src={destination.image}
+                    alt={destination.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-t ${destination.color} opacity-60 group-hover:opacity-70 transition-opacity duration-300`}></div>
+                  
+                  <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
+                    <h3 className="text-2xl font-bold mb-2">{destination.name}</h3>
+                    <p className="text-white/90 mb-3">{destination.country}</p>
+                    <div className="flex items-center">
+                      <Users className="h-4 w-4 mr-2" />
+                      <span className="text-sm">{destination.guides} гидов</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-6">
+          <div className="glass-card rounded-3xl p-12 text-center max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Готовы к <span className="gradient-text">приключениям?</span>
+            </h2>
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              Начните свое путешествие прямо сейчас. Найдите идеального гида и откройте мир новых впечатлений.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 border-0 px-8">
+                Найти гида
+              </Button>
+              <Button variant="outline" size="lg" className="glass-button border-white/20">
+                <Play className="mr-2 h-5 w-5" />
+                Как это работает
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-slate-900 text-white py-16">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <div className="flex items-center space-x-2 mb-6">
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                  <Globe className="h-6 w-6 text-white" />
+                </div>
+                <span className="text-2xl font-bold">GuideMe</span>
+              </div>
+              <p className="text-gray-400 leading-relaxed">
+                Ваш путеводитель к незабываемым путешествиям с местными экспертами по всему миру.
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="font-semibold mb-4">Путешественникам</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors">Найти гида</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Популярные направления</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Отзывы</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Поддержка</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="font-semibold mb-4">Гидам</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors">Стать гидом</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Правила</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Ресурсы</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Сообщество</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="font-semibold mb-4">Компания</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors">О нас</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Карьера</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Пресс-центр</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Контакты</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+            <p>&copy; 2024 GuideMe. Все права защищены.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
