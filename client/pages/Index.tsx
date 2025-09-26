@@ -139,7 +139,7 @@ export default function Index() {
               <span className="gradient-text block">местными гидами</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-12 text-balance leading-relaxed">
-              Уникальные экскурсии от местных экспертов в более чем 180 странах мира. 
+              Уникальные эк��курсии от местных экспертов в более чем 180 странах мира. 
               Погрузитесь в культуру и откройте скрытые жемчужины.
             </p>
 
@@ -467,6 +467,53 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Support Section */}
+      <section id="support" className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Нужна помощь?</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Мы здесь, чтобы помочь вам в любое время. Свяжитесь с нами удобным способом.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="glass-card p-8 rounded-3xl text-center group hover:shadow-float transition-all duration-500 hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <MessageCircle className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold mb-4">Онлайн чат</h3>
+              <p className="text-gray-600 mb-6">Получите мгновенную помощь от нашей команды поддержки</p>
+              <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 border-0">
+                Начать чат
+              </Button>
+            </div>
+
+            <div className="glass-card p-8 rounded-3xl text-center group hover:shadow-float transition-all duration-500 hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Heart className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold mb-4">База знаний</h3>
+              <p className="text-gray-600 mb-6">Найдите ответы на часто задаваемые вопросы</p>
+              <Button variant="outline" className="w-full glass-button border-white/20">
+                Открыть FAQ
+              </Button>
+            </div>
+
+            <div className="glass-card p-8 rounded-3xl text-center group hover:shadow-float transition-all duration-500 hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Users className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold mb-4">Сообщество</h3>
+              <p className="text-gray-600 mb-6">Присоединяйтесь к нашему сообществу путешественников</p>
+              <Button variant="outline" className="w-full glass-button border-white/20">
+                Присоединиться
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-16">
         <div className="container mx-auto px-6">
@@ -478,21 +525,40 @@ export default function Index() {
                 </div>
                 <span className="text-2xl font-bold">GuideMe</span>
               </div>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-gray-400 leading-relaxed mb-6">
                 Ваш путеводитель к незабываемым путешествиям с местными экспертами по всему миру.
               </p>
+
+              {/* Social Links */}
+              <div className="flex space-x-4">
+                <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors duration-300">
+                  <Share2 className="h-5 w-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors duration-300">
+                  <Heart className="h-5 w-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors duration-300">
+                  <Users className="h-5 w-5" />
+                </a>
+              </div>
             </div>
-            
+
             <div>
               <h3 className="font-semibold mb-4">Путешественникам</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Найти гида</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Популярные направления</a></li>
+                <li><a href="/guides" className="hover:text-white transition-colors">Найти гида</a></li>
+                <li><a href="#destinations" className="hover:text-white transition-colors cursor-pointer" onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('destinations')?.scrollIntoView({ behavior: 'smooth' });
+                }}>Популярные направления</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Отзывы</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Поддержка</a></li>
+                <li><a href="#support" className="hover:text-white transition-colors cursor-pointer" onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('support')?.scrollIntoView({ behavior: 'smooth' });
+                }}>Поддержка</a></li>
               </ul>
             </div>
-            
+
             <div>
               <h3 className="font-semibold mb-4">Гидам</h3>
               <ul className="space-y-2 text-gray-400">
@@ -502,7 +568,7 @@ export default function Index() {
                 <li><a href="#" className="hover:text-white transition-colors">Сообщество</a></li>
               </ul>
             </div>
-            
+
             <div>
               <h3 className="font-semibold mb-4">Компания</h3>
               <ul className="space-y-2 text-gray-400">
@@ -513,9 +579,16 @@ export default function Index() {
               </ul>
             </div>
           </div>
-          
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 GuideMe. Все права защищены.</p>
+
+          <div className="border-t border-gray-800 mt-12 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <p className="text-gray-400 text-center md:text-left">&copy; 2024 GuideMe. Все права защищены.</p>
+              <div className="flex space-x-6 mt-4 md:mt-0">
+                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Условия использования</a>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Политика конфиденциальности</a>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Cookies</a>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
