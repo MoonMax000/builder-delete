@@ -185,29 +185,73 @@ export default function Index() {
               <Card key={guide.id} className="glass-card border-white/20 overflow-hidden group hover:shadow-float transition-all duration-500 hover:-translate-y-2">
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden">
-                    <img 
-                      src={guide.image} 
+                    <img
+                      src={guide.image}
                       alt={guide.name}
                       className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div className="absolute top-4 right-4 glass-button px-3 py-1 rounded-full">
-                      <div className="flex items-center space-x-1">
-                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                        <span className="text-sm font-semibold">{guide.rating}</span>
+
+                    {/* Top overlay buttons */}
+                    <div className="absolute top-4 left-4 right-4 flex justify-between items-center">
+                      <div className="glass-button px-3 py-1 rounded-full">
+                        <div className="flex items-center space-x-1">
+                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                          <span className="text-sm font-semibold">{guide.rating}</span>
+                        </div>
                       </div>
+
+                      {/* Like button */}
+                      <button
+                        onClick={() => {
+                          const newLiked = new Set(likedGuides);
+                          if (newLiked.has(guide.id)) {
+                            newLiked.delete(guide.id);
+                          } else {
+                            newLiked.add(guide.id);
+                          }
+                          setLikedGuides(newLiked);
+                        }}
+                        className="glass-button p-2 rounded-full hover:scale-110 transition-transform duration-300"
+                      >
+                        <Heart
+                          className={`h-4 w-4 transition-colors duration-300 ${
+                            likedGuides.has(guide.id)
+                              ? 'fill-red-500 text-red-500'
+                              : 'text-gray-600 hover:text-red-500'
+                          }`}
+                        />
+                      </button>
                     </div>
+
+                    {/* Price badge */}
                     <div className="absolute bottom-4 left-4 glass-button px-3 py-1 rounded-full">
                       <span className="text-sm font-semibold text-blue-600">{guide.price}</span>
                     </div>
+
+                    {/* Quick action buttons (shown on hover) */}
+                    <div className="absolute bottom-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <button
+                        className="glass-button p-2 rounded-full hover:scale-110 transition-transform duration-300"
+                        title="Написать сообщение"
+                      >
+                        <MessageCircle className="h-4 w-4 text-blue-600" />
+                      </button>
+                      <button
+                        className="glass-button p-2 rounded-full hover:scale-110 transition-transform duration-300"
+                        title="Поделиться"
+                      >
+                        <Share2 className="h-4 w-4 text-blue-600" />
+                      </button>
+                    </div>
                   </div>
-                  
+
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2">{guide.name}</h3>
+                    <h3 className="text-xl font-bold mb-2 hover:text-blue-600 transition-colors cursor-pointer">{guide.name}</h3>
                     <div className="flex items-center text-gray-600 mb-3">
                       <MapPin className="h-4 w-4 mr-1" />
                       <span className="text-sm">{guide.location}</span>
                     </div>
-                    
+
                     <div className="flex items-center space-x-4 mb-4">
                       <div className="flex items-center">
                         <Users className="h-4 w-4 mr-1 text-gray-400" />
@@ -218,24 +262,52 @@ export default function Index() {
                     <div className="mb-4">
                       <div className="flex flex-wrap gap-2">
                         {guide.specialties.slice(0, 2).map((specialty, idx) => (
-                          <span key={idx} className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
+                          <span
+                            key={idx}
+                            className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium hover:bg-blue-200 transition-colors cursor-pointer"
+                          >
                             {specialty}
                           </span>
                         ))}
+                        {guide.specialties.length > 2 && (
+                          <span
+                            className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium cursor-pointer hover:bg-gray-200 transition-colors"
+                            onMouseEnter={() => setShowTooltip(guide.id)}
+                            onMouseLeave={() => setShowTooltip(null)}
+                          >
+                            +{guide.specialties.length - 2}
+                          </span>
+                        )}
                       </div>
+
+                      {/* Tooltip for additional specialties */}
+                      {showTooltip === guide.id && (
+                        <div className="absolute z-10 mt-2 p-2 bg-black text-white text-xs rounded-lg shadow-lg">
+                          {guide.specialties.slice(2).join(', ')}
+                        </div>
+                      )}
                     </div>
 
                     <div className="flex flex-wrap gap-1 mb-4">
                       {guide.languages.map((lang, idx) => (
-                        <span key={idx} className="text-xs text-gray-500">
+                        <span key={idx} className="text-xs text-gray-500 hover:text-blue-600 transition-colors cursor-pointer">
                           {lang}{idx < guide.languages.length - 1 && ", "}
                         </span>
                       ))}
                     </div>
 
-                    <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 border-0">
-                      Связаться с гидом
-                    </Button>
+                    <div className="flex gap-2">
+                      <Button className="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 border-0 transition-all duration-300 hover:scale-105">
+                        Связаться
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="glass-button border-white/20 hover:scale-105 transition-transform duration-300"
+                      >
+                        Профиль
+                      </Button>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -257,7 +329,7 @@ export default function Index() {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Популярные направления</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Исследуйте самые востребованные города с нашими экспертными гидами
+              Исследуйт�� самые востребованные города с нашими экспертными гидами
             </p>
           </div>
 
@@ -355,7 +427,7 @@ export default function Index() {
               <ul className="space-y-2 text-gray-400">
                 <li><a href="#" className="hover:text-white transition-colors">О нас</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Карьера</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Пресс-��ентр</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Пресс-центр</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Контакты</a></li>
               </ul>
             </div>
