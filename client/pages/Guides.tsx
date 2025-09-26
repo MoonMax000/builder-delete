@@ -1,35 +1,63 @@
+import { useState } from "react";
 import { Search, MapPin, Star, Users, Globe, Filter, SlidersHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
+import MobileNav from "@/components/MobileNav";
 
 export default function Guides() {
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Header */}
       <header className="glass-card sticky top-0 z-50 border-none">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+            <a href="/" className="flex items-center space-x-2 group">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <Globe className="h-6 w-6 text-white" />
               </div>
               <span className="text-2xl font-bold gradient-text">GuideMe</span>
-            </div>
-            
+            </a>
+
             <nav className="hidden md:flex items-center space-x-8">
-              <a href="/" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Главная</a>
-              <a href="/guides" className="text-blue-600 font-semibold">Гиды</a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Направления</a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Как это работает</a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Поддержка</a>
+              <a href="/" className="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium relative group">
+                Главная
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              </a>
+              <a href="/guides" className="text-blue-600 font-semibold relative">
+                Гиды
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-600"></span>
+              </a>
+              <a href="/#destinations" className="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium relative group">
+                Направления
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              </a>
+              <a href="/#how-it-works" className="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium relative group">
+                Как это работает
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              </a>
+              <a href="/#support" className="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium relative group">
+                Поддержка
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              </a>
             </nav>
 
             <div className="flex items-center space-x-4">
-              <Button variant="ghost" className="hidden sm:flex">Стать гидом</Button>
-              <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 border-0">
+              <Button
+                variant="ghost"
+                className="hidden sm:flex hover:bg-blue-50 transition-colors duration-300"
+              >
+                Стать гидом
+              </Button>
+              <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 border-0 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 Войти
               </Button>
+              <MobileNav
+                isOpen={mobileNavOpen}
+                onToggle={() => setMobileNavOpen(!mobileNavOpen)}
+              />
             </div>
           </div>
         </div>
