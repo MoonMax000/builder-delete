@@ -123,7 +123,7 @@ export default function Guides() {
             </div>
 
             {/* Feature Preview */}
-            <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            <div className="mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Search className="h-8 w-8 text-white" />
@@ -137,7 +137,7 @@ export default function Guides() {
                   <Star className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="font-bold mb-2">Рейтинги и отзывы</h3>
-                <p className="text-gray-600 text-sm">Проверенные отзывы от реальных путешественников</p>
+                <p className="text-gray-600 text-sm">Проверенные отзывы от реальных путешественн��ков</p>
               </div>
               
               <div className="text-center">
