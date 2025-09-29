@@ -493,8 +493,8 @@ export default function Index() {
               <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <Heart className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-4">База знаний</h3>
-              <p className="text-gray-600 mb-6">Найдите ответы на часто задаваемые вопросы</p>
+              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">База знаний</h3>
+              <p className="text-sm md:text-base text-gray-600 mb-4 md:mb-6">Найдите ответы на часто задаваемые вопросы</p>
               <Button variant="outline" className="w-full glass-button border-white/20">
                 Открыть FAQ
               </Button>
@@ -504,8 +504,8 @@ export default function Index() {
               <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <Users className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-4">Сообщество</h3>
-              <p className="text-gray-600 mb-6">��рисоединяйтесь к нашему сообществу путешественников</p>
+              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Сообщество</h3>
+              <p className="text-sm md:text-base text-gray-600 mb-4 md:mb-6">Присоединяйтесь к нашему сообществу путешественников</p>
               <Button variant="outline" className="w-full glass-button border-white/20">
                 Присоединиться
               </Button>
@@ -550,7 +550,7 @@ export default function Index() {
                 <li><a href="#destinations" className="hover:text-white transition-colors cursor-pointer" onClick={(e) => {
                   e.preventDefault();
                   document.getElementById('destinations')?.scrollIntoView({ behavior: 'smooth' });
-                }}>Популярны�� направления</a></li>
+                }}>Популярные направления</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Отзывы</a></li>
                 <li><a href="#support" className="hover:text-white transition-colors cursor-pointer" onClick={(e) => {
                   e.preventDefault();
