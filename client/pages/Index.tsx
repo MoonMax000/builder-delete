@@ -134,11 +134,11 @@ export default function Index() {
       <section className="relative pt-16 pb-24 md:pt-20 md:pb-32 lg:pt-24 lg:pb-36 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto animate-fade-in-up">
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 text-balance">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 text-balance">
               Откройте мир с
               <span className="gradient-text block">местными гидами</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-12 text-balance leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-8 md:mb-12 text-balance leading-relaxed">
               Уникальные эк��курсии от местных экспертов в более чем 180 странах мира. 
               Погрузитесь в культуру и откройте скрытые жемчужины.
             </p>
@@ -173,9 +173,9 @@ export default function Index() {
       {/* Featured Guides */}
       <section className="py-16 md:py-20 lg:py-24 relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Лучшие гиды</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">Лучшие гиды</h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
               Познакомьтесь с нашими топ-гидами, которые сделают ваше путешествие незабываемым
             </p>
           </div>
@@ -246,7 +246,7 @@ export default function Index() {
                   </div>
 
                   <div className="p-6 lg:p-8">
-                    <h3 className="text-xl font-bold mb-2 hover:text-blue-600 transition-colors cursor-pointer">{guide.name}</h3>
+                    <h3 className="text-lg md:text-xl font-bold mb-2 hover:text-blue-600 transition-colors cursor-pointer">{guide.name}</h3>
                     <div className="flex items-center text-gray-600 mb-3">
                       <MapPin className="h-4 w-4 mr-1" />
                       <span className="text-sm">{guide.location}</span>
@@ -331,9 +331,9 @@ export default function Index() {
       {/* Popular Destinations */}
       <section id="destinations" className="py-16 md:py-20 lg:py-24 bg-gradient-to-r from-blue-50 to-indigo-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Популярные направления</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">Популярные направления</h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
               Исследуйте самые востребованные города с нашими экспертными гидами
             </p>
           </div>
@@ -369,7 +369,7 @@ export default function Index() {
                   </div>
 
                   <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
-                    <h3 className="text-2xl font-bold mb-2 group-hover:scale-105 transition-transform duration-300">{destination.name}</h3>
+                    <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:scale-105 transition-transform duration-300">{destination.name}</h3>
                     <p className="text-white/90 mb-3">{destination.country}</p>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
@@ -404,10 +404,10 @@ export default function Index() {
       <section id="how-it-works" className="py-16 md:py-20 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="glass-card rounded-3xl p-8 md:p-12 lg:p-16 text-center max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">
               Готовы к <span className="gradient-text">приключениям?</span>
             </h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto">
               Начните свое путешествие прямо сейчас. Найдите идеального гида и откройте мир новых впечатлений.
             </p>
 
@@ -470,9 +470,9 @@ export default function Index() {
       {/* Support Section */}
       <section id="support" className="py-16 md:py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Нужна помощь?</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">Нужна помощь?</h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
               Мы здесь, чтобы помочь вам в любое время. Свяжитесь с нами удобным способом.
             </p>
           </div>
@@ -482,8 +482,8 @@ export default function Index() {
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <MessageCircle className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-4">Онлайн чат</h3>
-              <p className="text-gray-600 mb-6">Получите мгновенную помощь от нашей команды поддержки</p>
+              <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Онлайн чат</h3>
+              <p className="text-sm md:text-base text-gray-600 mb-4 md:mb-6">Получите мгновенную помощь от нашей команды поддержки</p>
               <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 border-0">
                 Начать чат
               </Button>
@@ -505,7 +505,7 @@ export default function Index() {
                 <Users className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-4">Сообщество</h3>
-              <p className="text-gray-600 mb-6">Присоединяйтесь к нашему сообществу путешественников</p>
+              <p className="text-gray-600 mb-6">��рисоединяйтесь к нашему сообществу путешественников</p>
               <Button variant="outline" className="w-full glass-button border-white/20">
                 Присоединиться
               </Button>
@@ -550,7 +550,7 @@ export default function Index() {
                 <li><a href="#destinations" className="hover:text-white transition-colors cursor-pointer" onClick={(e) => {
                   e.preventDefault();
                   document.getElementById('destinations')?.scrollIntoView({ behavior: 'smooth' });
-                }}>Популярные направления</a></li>
+                }}>Популярны�� направления</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Отзывы</a></li>
                 <li><a href="#support" className="hover:text-white transition-colors cursor-pointer" onClick={(e) => {
                   e.preventDefault();
