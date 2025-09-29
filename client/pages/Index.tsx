@@ -83,7 +83,7 @@ export default function Index() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Header */}
       <header className="glass-card sticky top-0 z-50 border-none">
-        <div className="container mx-auto px-6 py-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <a href="/" className="flex items-center space-x-2 group">
               <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -131,15 +131,15 @@ export default function Index() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-32 overflow-hidden">
-        <div className="container mx-auto px-6">
+      <section className="relative pt-16 pb-24 md:pt-20 md:pb-32 lg:pt-24 lg:pb-36 overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto animate-fade-in-up">
             <h1 className="text-5xl md:text-7xl font-bold mb-8 text-balance">
               Откройте мир с
               <span className="gradient-text block">местными гидами</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-12 text-balance leading-relaxed">
-              Уникальные эк��курсии от местных экспертов в более чем 180 странах мира. 
+              Уникальные эк��курсии от местных экспертов в более чем 180 стран��х мира. 
               Погрузитесь в культуру и откройте скрытые жемчужины.
             </p>
 
@@ -171,8 +171,8 @@ export default function Index() {
       </section>
 
       {/* Featured Guides */}
-      <section className="py-20 relative">
-        <div className="container mx-auto px-6">
+      <section className="py-16 md:py-20 lg:py-24 relative">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Лучшие гиды</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -180,7 +180,7 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {featuredGuides.map((guide, index) => (
               <Card key={guide.id} className="glass-card border-white/20 overflow-hidden group hover:shadow-float transition-all duration-500 hover:-translate-y-2">
                 <CardContent className="p-0">
@@ -329,8 +329,8 @@ export default function Index() {
       </section>
 
       {/* Popular Destinations */}
-      <section id="destinations" className="py-20 bg-gradient-to-r from-blue-50 to-indigo-50">
-        <div className="container mx-auto px-6">
+      <section id="destinations" className="py-16 md:py-20 lg:py-24 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Популярные направления</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -338,7 +338,7 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {popularDestinations.map((destination, index) => (
               <div
                 key={destination.name}
@@ -401,9 +401,9 @@ export default function Index() {
       </section>
 
       {/* CTA Section */}
-      <section id="how-it-works" className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="glass-card rounded-3xl p-12 text-center max-w-4xl mx-auto">
+      <section id="how-it-works" className="py-16 md:py-20 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="glass-card rounded-3xl p-8 md:p-12 lg:p-16 text-center max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Готовы к <span className="gradient-text">приключениям?</span>
             </h2>
@@ -412,7 +412,7 @@ export default function Index() {
             </p>
 
             {/* Steps */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Search className="h-8 w-8 text-white" />
@@ -468,8 +468,8 @@ export default function Index() {
       </section>
 
       {/* Support Section */}
-      <section id="support" className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
-        <div className="container mx-auto px-6">
+      <section id="support" className="py-16 md:py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Нужна помощь?</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -505,7 +505,7 @@ export default function Index() {
                 <Users className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-4">Сообщество</h3>
-              <p className="text-gray-600 mb-6">Присоединяйтесь к нашему сообществу путешественников</p>
+              <p className="text-gray-600 mb-6">Присоедин��йтесь к нашему сообществу путешественников</p>
               <Button variant="outline" className="w-full glass-button border-white/20">
                 Присоединиться
               </Button>
