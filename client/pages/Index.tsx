@@ -147,7 +147,7 @@ export default function Index() {
             <SearchForm />
 
             {/* Stats */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-2xl mx-auto">
+            <div className="mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-2xl mx-auto">
               <div className="text-center animate-slide-in-left">
                 <div className="text-3xl font-bold gradient-text">10,000+</div>
                 <div className="text-gray-600">Экспертных гидов</div>
@@ -176,7 +176,7 @@ export default function Index() {
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">Лучшие гиды</h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-              Познакомьтесь с нашими топ-гидами, которые сделают ваше путешествие незабываемым
+              Познакомьтесь с нашими топ-гидами, которые сделают ваше путешествие незабыв��емым
             </p>
           </div>
 
@@ -334,7 +334,7 @@ export default function Index() {
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">Популярные направления</h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-              Исследуйте самые востребованные города с нашими экспертными гидами
+              Исследуйте самые востребованные города с нашими экс��ертными гидами
             </p>
           </div>
 
@@ -408,7 +408,7 @@ export default function Index() {
               Готовы к <span className="gradient-text">приключениям?</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto">
-              Начните свое путешествие прямо сейчас. Найдите идеального гида и откройте мир новых впечатлений.
+              Начните свое ��утешествие прямо сейчас. Найдите идеального гида и откройте мир новых впечатлений.
             </p>
 
             {/* Steps */}
