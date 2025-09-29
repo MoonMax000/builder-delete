@@ -12,7 +12,7 @@ export default function Guides() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Header */}
       <header className="glass-card sticky top-0 z-50 border-none">
-        <div className="container mx-auto px-6 py-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <a href="/" className="flex items-center space-x-2 group">
               <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -64,8 +64,8 @@ export default function Guides() {
       </header>
 
       {/* Page Content */}
-      <section className="pt-20 pb-32">
-        <div className="container mx-auto px-6">
+      <section className="pt-16 pb-24 md:pt-20 md:pb-32 lg:pt-24 lg:pb-36">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-in-up">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Все <span className="gradient-text">гиды</span>
@@ -99,7 +99,7 @@ export default function Guides() {
           </div>
 
           {/* Placeholder Content */}
-          <div className="glass-card rounded-3xl p-16 text-center max-w-3xl mx-auto animate-scale-in">
+          <div className="glass-card rounded-3xl p-8 md:p-12 lg:p-16 text-center max-w-3xl mx-auto animate-scale-in">
             <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-8">
               <Users className="h-12 w-12 text-white" />
             </div>
@@ -123,7 +123,7 @@ export default function Guides() {
             </div>
 
             {/* Feature Preview */}
-            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Search className="h-8 w-8 text-white" />
