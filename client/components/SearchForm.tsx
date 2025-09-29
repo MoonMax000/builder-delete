@@ -99,7 +99,7 @@ export default function SearchForm({ onSearch }: SearchFormProps) {
               placeholder="Куда хотите поехать?"
               value={searchData.destination}
               onChange={(e) => updateSearchData('destination', e.target.value)}
-              className={`pl-12 h-14 text-lg bg-white/50 border-white/20 rounded-2xl focus:bg-white transition-all duration-300 ${
+              className={`pl-12 h-12 text-base md:text-lg bg-white/50 border-white/20 rounded-2xl focus:bg-white transition-all duration-300 ${
                 errors.destination ? 'border-red-300 focus:ring-red-500' : ''
               }`}
             />
@@ -111,10 +111,10 @@ export default function SearchForm({ onSearch }: SearchFormProps) {
           {/* Country Select */}
           <div className="flex-1 relative">
             <MapPin className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5 z-10" />
-            <select 
+            <select
               value={searchData.country}
               onChange={(e) => updateSearchData('country', e.target.value)}
-              className={`w-full pl-12 h-14 text-lg bg-white/50 border border-white/20 rounded-2xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none transition-all duration-300 ${
+              className={`w-full pl-12 h-12 text-base md:text-lg bg-white/50 border border-white/20 rounded-2xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none transition-all duration-300 ${
                 errors.country ? 'border-red-300 focus:ring-red-500' : ''
               }`}
             >
@@ -130,11 +130,11 @@ export default function SearchForm({ onSearch }: SearchFormProps) {
           </div>
 
           {/* Search Button */}
-          <Button 
+          <Button
             type="submit"
-            size="lg" 
+            size="lg"
             disabled={isLoading}
-            className="h-14 px-8 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-2xl border-0 text-lg font-semibold transition-all duration-300 transform hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
+            className="h-12 px-6 md:px-8 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-2xl border-0 text-base md:text-lg font-semibold transition-all duration-300 transform hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
           >
             {isLoading ? (
               <>
