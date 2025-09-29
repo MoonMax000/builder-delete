@@ -87,10 +87,10 @@ export default function SearchForm({ onSearch }: SearchFormProps) {
   };
 
   return (
-    <div className="glass-card p-6 md:p-8 rounded-3xl max-w-4xl mx-auto animate-scale-in">
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="glass-card p-6 md:p-8 lg:p-10 rounded-3xl max-w-4xl mx-auto animate-scale-in">
+      <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
         {/* Main Search Fields */}
-        <div className="flex flex-col lg:flex-row gap-4">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
           {/* Destination Input */}
           <div className="flex-1 relative">
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5 z-10" />
@@ -104,7 +104,7 @@ export default function SearchForm({ onSearch }: SearchFormProps) {
               }`}
             />
             {errors.destination && (
-              <p className="text-red-500 text-sm mt-1 ml-2">{errors.destination}</p>
+              <p className="text-red-500 text-sm mt-2 ml-2">{errors.destination}</p>
             )}
           </div>
 
@@ -125,7 +125,7 @@ export default function SearchForm({ onSearch }: SearchFormProps) {
               ))}
             </select>
             {errors.country && (
-              <p className="text-red-500 text-sm mt-1 ml-2">{errors.country}</p>
+              <p className="text-red-500 text-sm mt-2 ml-2">{errors.country}</p>
             )}
           </div>
 
@@ -156,7 +156,7 @@ export default function SearchForm({ onSearch }: SearchFormProps) {
             type="button"
             variant="ghost"
             onClick={() => setIsAdvanced(!isAdvanced)}
-            className="text-gray-600 hover:text-blue-600 transition-colors"
+            className="text-gray-600 hover:text-blue-600 transition-colors text-sm md:text-base py-2"
           >
             {isAdvanced ? 'Скрыть' : 'Дополнительные параметры'}
           </Button>
@@ -164,7 +164,7 @@ export default function SearchForm({ onSearch }: SearchFormProps) {
 
         {/* Advanced Options */}
         {isAdvanced && (
-          <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-white/20 animate-fade-in-up">
+          <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-white/20 animate-fade-in-up">
             {/* Date */}
             <div className="flex-1 relative">
               <Calendar className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5 z-10" />
