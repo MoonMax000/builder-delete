@@ -114,11 +114,11 @@ export default function Index() {
             <div className="flex items-center space-x-4">
               <Button
                 variant="ghost"
-                className="hidden sm:flex hover:bg-blue-50 transition-colors duration-300"
+                className="hidden sm:flex h-10 px-4 hover:bg-blue-50 transition-colors duration-300"
               >
                 Стать гидом
               </Button>
-              <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 border-0 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+              <Button className="h-10 px-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 border-0 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                 Войти
               </Button>
               <MobileNav
