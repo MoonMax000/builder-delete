@@ -139,7 +139,7 @@ export default function Index() {
               <span className="gradient-text block">местными гидами</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-12 text-balance leading-relaxed">
-              Уникальные эк��курсии от местных экспертов в более чем 180 стран��х мира. 
+              Уникальные эк��курсии от местных экспертов в более чем 180 странах мира. 
               Погрузитесь в культуру и откройте скрытые жемчужины.
             </p>
 
@@ -245,7 +245,7 @@ export default function Index() {
                     </div>
                   </div>
 
-                  <div className="p-6">
+                  <div className="p-6 lg:p-8">
                     <h3 className="text-xl font-bold mb-2 hover:text-blue-600 transition-colors cursor-pointer">{guide.name}</h3>
                     <div className="flex items-center text-gray-600 mb-3">
                       <MapPin className="h-4 w-4 mr-1" />
@@ -477,8 +477,8 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="glass-card p-8 rounded-3xl text-center group hover:shadow-float transition-all duration-500 hover:-translate-y-2">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto">
+            <div className="glass-card p-6 lg:p-8 rounded-3xl text-center group hover:shadow-float transition-all duration-500 hover:-translate-y-2">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <MessageCircle className="h-8 w-8 text-white" />
               </div>
@@ -489,7 +489,7 @@ export default function Index() {
               </Button>
             </div>
 
-            <div className="glass-card p-8 rounded-3xl text-center group hover:shadow-float transition-all duration-500 hover:-translate-y-2">
+            <div className="glass-card p-6 lg:p-8 rounded-3xl text-center group hover:shadow-float transition-all duration-500 hover:-translate-y-2">
               <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <Heart className="h-8 w-8 text-white" />
               </div>
@@ -500,12 +500,12 @@ export default function Index() {
               </Button>
             </div>
 
-            <div className="glass-card p-8 rounded-3xl text-center group hover:shadow-float transition-all duration-500 hover:-translate-y-2">
+            <div className="glass-card p-6 lg:p-8 rounded-3xl text-center group hover:shadow-float transition-all duration-500 hover:-translate-y-2">
               <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <Users className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-4">Сообщество</h3>
-              <p className="text-gray-600 mb-6">Присоедин��йтесь к нашему сообществу путешественников</p>
+              <p className="text-gray-600 mb-6">Присоединяйтесь к нашему сообществу путешественников</p>
               <Button variant="outline" className="w-full glass-button border-white/20">
                 Присоединиться
               </Button>
@@ -515,9 +515,9 @@ export default function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-white py-16">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <footer className="bg-slate-900 text-white py-16 md:py-20 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-6">
                 <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
