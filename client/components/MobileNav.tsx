@@ -39,9 +39,9 @@ export default function MobileNav({ isOpen, onToggle }: MobileNavProps) {
         transform transition-transform duration-300 ease-out md:hidden
         ${isOpen ? 'translate-x-0' : 'translate-x-full'}
       `}>
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           {/* Header */}
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center justify-between mb-6 md:mb-8">
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
                 <Globe className="h-5 w-5 text-white" />
@@ -59,7 +59,7 @@ export default function MobileNav({ isOpen, onToggle }: MobileNavProps) {
           </div>
 
           {/* Navigation Links */}
-          <nav className="space-y-2 mb-8">
+          <nav className="space-y-1 mb-6 md:mb-8">
             <a 
               href="/guides" 
               className="flex items-center space-x-3 p-3 rounded-xl hover:bg-blue-50 transition-colors group"
@@ -99,15 +99,15 @@ export default function MobileNav({ isOpen, onToggle }: MobileNavProps) {
 
           {/* Action Buttons */}
           <div className="space-y-3">
-            <Button 
-              variant="outline" 
-              className="w-full glass-button border-white/20 justify-start"
+            <Button
+              variant="outline"
+              className="w-full h-12 glass-button border-white/20 justify-start"
               onClick={onToggle}
             >
               Стать гидом
             </Button>
-            <Button 
-              className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 border-0"
+            <Button
+              className="w-full h-12 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 border-0"
               onClick={onToggle}
             >
               Войти
@@ -115,7 +115,7 @@ export default function MobileNav({ isOpen, onToggle }: MobileNavProps) {
           </div>
 
           {/* Footer */}
-          <div className="mt-8 pt-6 border-t border-gray-200/50 text-center">
+          <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-gray-200/50 text-center">
             <p className="text-sm text-gray-500">© 2024 GuideMe</p>
           </div>
         </div>
