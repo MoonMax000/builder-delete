@@ -23,7 +23,7 @@ export default function Guides() {
 
             <nav className="hidden md:flex items-center space-x-8">
               <a href="/" className="text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium relative group">
-                Главная
+                ��лавная
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
               </a>
               <a href="/guides" className="text-blue-600 font-semibold relative">
@@ -66,11 +66,11 @@ export default function Guides() {
       {/* Page Content */}
       <section className="pt-16 pb-24 md:pt-20 md:pb-32 lg:pt-24 lg:pb-36">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 animate-fade-in-up">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <div className="text-center mb-12 md:mb-16 animate-fade-in-up">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
               Все <span className="gradient-text">гиды</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-6 md:mb-8">
               Найдите идеального гида для вашего путешествия среди тысяч проверенных экспертов
             </p>
 
@@ -104,8 +104,8 @@ export default function Guides() {
               <Users className="h-12 w-12 text-white" />
             </div>
             
-            <h2 className="text-3xl font-bold mb-6">Страница в разработке</h2>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Страница в разработке</h2>
+            <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed">
               Мы работаем над созданием полного каталога гидов. Скоро здесь появится удобная система поиска и фильтрации, 
               детальные профили гидов и возможность мгновенного бронирования экскурсий.
             </p>
@@ -128,24 +128,24 @@ export default function Guides() {
                 <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Search className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="font-bold mb-2">Умный поиск</h3>
-                <p className="text-gray-600 text-sm">Найдите гида по интересам, языку и локации</p>
+                <h3 className="text-sm md:text-base font-bold mb-2">Умный поиск</h3>
+                <p className="text-gray-600 text-xs md:text-sm">Найдите гида по интересам, языку и локации</p>
               </div>
               
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Star className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="font-bold mb-2">Рейтинги и отзывы</h3>
-                <p className="text-gray-600 text-sm">Проверенные отзывы от реальных путешественн��ков</p>
+                <h3 className="text-sm md:text-base font-bold mb-2">Рейтинги и отзывы</h3>
+                <p className="text-gray-600 text-xs md:text-sm">Проверенные отзывы от реальных путешественников</p>
               </div>
               
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <MapPin className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="font-bold mb-2">Мгновенное бронирование</h3>
-                <p className="text-gray-600 text-sm">Забронируйте экскурсию в несколько кликов</p>
+                <h3 className="text-sm md:text-base font-bold mb-2">Мгновенное бронирование</h3>
+                <p className="text-gray-600 text-xs md:text-sm">Забронируйте экскурсию в несколько кликов</p>
               </div>
             </div>
           </div>
